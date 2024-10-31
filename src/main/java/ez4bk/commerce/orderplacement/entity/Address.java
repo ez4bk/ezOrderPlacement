@@ -1,10 +1,7 @@
 package ez4bk.commerce.orderplacement.entity;
 
-import org.springframework.stereotype.Repository;
-
 import java.io.Serializable;
 
-@Repository
 public class Address implements Serializable {
     private Integer id;
 
@@ -15,6 +12,38 @@ public class Address implements Serializable {
     private Byte isDeleted;
 
     private static final long serialVersionUID = 1L;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public Byte getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
+    }
 
     @Override
     public String toString() {
