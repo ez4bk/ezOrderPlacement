@@ -1,11 +1,11 @@
 package ez4bk.commerce.orderplacement.entity;
 
-import org.springframework.stereotype.Repository;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Repository
+@Data
 public class Customer implements Serializable {
     private Integer id;
 

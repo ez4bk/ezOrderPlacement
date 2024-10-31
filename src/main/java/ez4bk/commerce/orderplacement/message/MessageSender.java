@@ -11,7 +11,7 @@ public class MessageSender {
     @Autowired
     private RabbitTemplate rabbit;
 
-    public void sendOrder(Integer orderId, long delay) {
+    public void sendOrder(String orderId, long delay) {
         rabbit.convertAndSend(ORDER_EXCHANGE,
                 "order.payment." + delay,
                 orderId,

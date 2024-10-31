@@ -5,8 +5,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-
 import static ez4bk.commerce.orderplacement.config.RabbitMQConfig.ORDER_QUEUE;
 
 @Component
@@ -17,7 +15,7 @@ public class MessageReceiver {
     @RabbitListener(queues = ORDER_QUEUE)
     public void confirmPayment(Object message) {
         try {
-            Integer oid = (Integer) message;
+            String oid = (String) message;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

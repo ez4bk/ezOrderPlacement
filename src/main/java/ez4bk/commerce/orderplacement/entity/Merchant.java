@@ -1,7 +1,10 @@
 package ez4bk.commerce.orderplacement.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
 public class Merchant implements Serializable {
     private Integer id;
 
@@ -14,46 +17,6 @@ public class Merchant implements Serializable {
     private Integer status;
 
     private static final long serialVersionUID = 1L;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
 
     @Override
     public String toString() {
