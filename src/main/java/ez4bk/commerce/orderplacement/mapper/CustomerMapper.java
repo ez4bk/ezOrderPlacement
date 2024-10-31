@@ -1,5 +1,6 @@
 package ez4bk.commerce.orderplacement.mapper;
 
+import ez4bk.commerce.orderplacement.entity.Address;
 import ez4bk.commerce.orderplacement.entity.Customer;
 import ez4bk.commerce.orderplacement.entity.CustomerExample;
 import java.util.List;
@@ -21,6 +22,8 @@ public interface CustomerMapper {
     List<Customer> selectByExample(CustomerExample example);
 
     Customer selectByPrimaryKey(Integer id);
+
+    List<Address> getAddresses(Integer id);
 
     int updateByExampleSelective(@Param("row") Customer row, @Param("example") CustomerExample example);
 

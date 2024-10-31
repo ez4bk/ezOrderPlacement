@@ -1,7 +1,11 @@
 package ez4bk.commerce.orderplacement.entity;
 
-import java.io.Serializable;
+import org.springframework.stereotype.Repository;
 
+import java.io.Serializable;
+import java.util.List;
+
+@Repository
 public class Customer implements Serializable {
     private Integer id;
 
@@ -9,31 +13,9 @@ public class Customer implements Serializable {
 
     private String phone;
 
+    private List<Address> addresses;
+
     private static final long serialVersionUID = 1L;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
 
     @Override
     public String toString() {

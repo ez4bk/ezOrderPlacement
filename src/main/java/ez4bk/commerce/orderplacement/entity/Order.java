@@ -21,6 +21,10 @@ public class Order implements Serializable {
 
     private Date updateTime;
 
+    private Customer customer;
+
+    private Address address;
+
     private static final long serialVersionUID = 1L;
 
     @Override
