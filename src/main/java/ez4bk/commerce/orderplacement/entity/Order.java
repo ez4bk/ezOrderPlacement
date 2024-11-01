@@ -15,6 +15,8 @@ public class Order implements Serializable {
 
     private Integer addressId;
 
+    private Integer merchantId;
+
     // 0 - closed, 1 - unpaid, 2 - paid, -1 - error
     private Byte status;
 
@@ -25,6 +27,8 @@ public class Order implements Serializable {
     private Customer customer;
 
     private Address address;
+
+    private Merchant merchant;
 
     private static final long serialVersionUID = 1L;
 
@@ -38,6 +42,7 @@ public class Order implements Serializable {
         sb.append(", description=").append(description);
         sb.append(", userId=").append(userId);
         sb.append(", addressId=").append(addressId);
+        sb.append(", merchantId=").append(merchantId);
         sb.append(", status=").append(status);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);

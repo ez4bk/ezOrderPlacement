@@ -365,6 +365,66 @@ public class OrderExample {
             return (Criteria) this;
         }
 
+        public Criteria andMerchantIdIsNull() {
+            addCriterion("merchant_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdIsNotNull() {
+            addCriterion("merchant_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdEqualTo(Integer value) {
+            addCriterion("merchant_id =", value, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdNotEqualTo(Integer value) {
+            addCriterion("merchant_id <>", value, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdGreaterThan(Integer value) {
+            addCriterion("merchant_id >", value, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("merchant_id >=", value, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdLessThan(Integer value) {
+            addCriterion("merchant_id <", value, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdLessThanOrEqualTo(Integer value) {
+            addCriterion("merchant_id <=", value, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdIn(List<Integer> values) {
+            addCriterion("merchant_id in", values, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdNotIn(List<Integer> values) {
+            addCriterion("merchant_id not in", values, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdBetween(Integer value1, Integer value2) {
+            addCriterion("merchant_id between", value1, value2, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMerchantIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("merchant_id not between", value1, value2, "merchantId");
+            return (Criteria) this;
+        }
+
         public Criteria andStatusIsNull() {
             addCriterion("\"status\" is null");
             return (Criteria) this;
