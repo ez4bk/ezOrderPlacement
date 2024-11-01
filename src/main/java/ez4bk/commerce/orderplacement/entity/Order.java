@@ -18,6 +18,8 @@ public class Order implements Serializable {
 
     private Integer merchantId;
 
+    private Integer quantity;
+
     private BigDecimal actualPayment;
 
     // 0 - closed, 1 - pending, -1 - error
@@ -49,6 +51,7 @@ public class Order implements Serializable {
         sb.append(", customerId=").append(customerId);
         sb.append(", addressId=").append(addressId);
         sb.append(", merchantId=").append(merchantId);
+        sb.append(", quantity=").append(quantity);
         sb.append(", actualPayment=").append(actualPayment);
         sb.append(", status=").append(status);
         sb.append(", paymentStatus=").append(paymentStatus);

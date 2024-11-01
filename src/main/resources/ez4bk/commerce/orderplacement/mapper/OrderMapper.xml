@@ -7,6 +7,7 @@
         <result column="customer_id" jdbcType="INTEGER" property="customerId"/>
         <result column="address_id" jdbcType="INTEGER" property="addressId"/>
         <result column="merchant_id" jdbcType="INTEGER" property="merchantId"/>
+        <result column="quantity" jdbcType="INTEGER" property="quantity"/>
         <result column="actual_payment" jdbcType="DECIMAL" property="actualPayment"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
         <result column="payment_status" jdbcType="TINYINT" property="paymentStatus"/>
@@ -80,8 +81,8 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        id, description, customer_id, address_id, merchant_id, actual_payment, "status",
-    payment_status, create_time, update_time
+        id, description, customer_id, address_id, merchant_id, quantity, actual_payment,
+    "status", payment_status, create_time, update_time
     </sql>
     <select id="selectByExample" parameterType="ez4bk.commerce.orderplacement.entity.OrderExample"
             resultMap="BaseResultMap">
@@ -120,13 +121,13 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into ez_order (description, customer_id, address_id,
-        merchant_id, actual_payment, "status",
-        payment_status, create_time, update_time
-        )
+        merchant_id, quantity, actual_payment,
+        "status", payment_status, create_time,
+        update_time)
         values (#{description,jdbcType=VARCHAR}, #{customerId,jdbcType=INTEGER}, #{addressId,jdbcType=INTEGER},
-        #{merchantId,jdbcType=INTEGER}, #{actualPayment,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT},
-        #{paymentStatus,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-        )
+        #{merchantId,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER}, #{actualPayment,jdbcType=DECIMAL},
+        #{status,jdbcType=TINYINT}, #{paymentStatus,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP},
+        #{updateTime,jdbcType=TIMESTAMP})
     </insert>
     <insert id="insertSelective" parameterType="ez4bk.commerce.orderplacement.entity.Order">
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
@@ -145,6 +146,9 @@
             </if>
             <if test="merchantId != null">
                 merchant_id,
+            </if>
+            <if test="quantity != null">
+                quantity,
             </if>
             <if test="actualPayment != null">
                 actual_payment,
@@ -174,6 +178,9 @@
             </if>
             <if test="merchantId != null">
                 #{merchantId,jdbcType=INTEGER},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=INTEGER},
             </if>
             <if test="actualPayment != null">
                 #{actualPayment,jdbcType=DECIMAL},
@@ -217,6 +224,9 @@
             <if test="row.merchantId != null">
                 merchant_id = #{row.merchantId,jdbcType=INTEGER},
             </if>
+            <if test="row.quantity != null">
+                quantity = #{row.quantity,jdbcType=INTEGER},
+            </if>
             <if test="row.actualPayment != null">
                 actual_payment = #{row.actualPayment,jdbcType=DECIMAL},
             </if>
@@ -244,6 +254,7 @@
         customer_id = #{row.customerId,jdbcType=INTEGER},
         address_id = #{row.addressId,jdbcType=INTEGER},
         merchant_id = #{row.merchantId,jdbcType=INTEGER},
+        quantity = #{row.quantity,jdbcType=INTEGER},
         actual_payment = #{row.actualPayment,jdbcType=DECIMAL},
         "status" = #{row.status,jdbcType=TINYINT},
         payment_status = #{row.paymentStatus,jdbcType=TINYINT},
@@ -267,6 +278,9 @@
             </if>
             <if test="merchantId != null">
                 merchant_id = #{merchantId,jdbcType=INTEGER},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=INTEGER},
             </if>
             <if test="actualPayment != null">
                 actual_payment = #{actualPayment,jdbcType=DECIMAL},
@@ -292,6 +306,7 @@
             customer_id    = #{customerId,jdbcType=INTEGER},
             address_id     = #{addressId,jdbcType=INTEGER},
             merchant_id    = #{merchantId,jdbcType=INTEGER},
+            quantity       = #{quantity,jdbcType=INTEGER},
             actual_payment = #{actualPayment,jdbcType=DECIMAL},
             "status"       = #{status,jdbcType=TINYINT},
             payment_status = #{paymentStatus,jdbcType=TINYINT},
