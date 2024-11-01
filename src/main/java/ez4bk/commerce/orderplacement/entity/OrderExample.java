@@ -245,63 +245,63 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
+        public Criteria andCustomerIdIsNull() {
+            addCriterion("customer_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
+        public Criteria andCustomerIdIsNotNull() {
+            addCriterion("customer_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
-            addCriterion("user_id =", value, "userId");
+        public Criteria andCustomerIdEqualTo(Integer value) {
+            addCriterion("customer_id =", value, "customerId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
-            addCriterion("user_id <>", value, "userId");
+        public Criteria andCustomerIdNotEqualTo(Integer value) {
+            addCriterion("customer_id <>", value, "customerId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
-            addCriterion("user_id >", value, "userId");
+        public Criteria andCustomerIdGreaterThan(Integer value) {
+            addCriterion("customer_id >", value, "customerId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("user_id >=", value, "userId");
+        public Criteria andCustomerIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("customer_id >=", value, "customerId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
-            addCriterion("user_id <", value, "userId");
+        public Criteria andCustomerIdLessThan(Integer value) {
+            addCriterion("customer_id <", value, "customerId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
-            addCriterion("user_id <=", value, "userId");
+        public Criteria andCustomerIdLessThanOrEqualTo(Integer value) {
+            addCriterion("customer_id <=", value, "customerId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
-            addCriterion("user_id in", values, "userId");
+        public Criteria andCustomerIdIn(List<Integer> values) {
+            addCriterion("customer_id in", values, "customerId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
-            addCriterion("user_id not in", values, "userId");
+        public Criteria andCustomerIdNotIn(List<Integer> values) {
+            addCriterion("customer_id not in", values, "customerId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
-            addCriterion("user_id between", value1, value2, "userId");
+        public Criteria andCustomerIdBetween(Integer value1, Integer value2) {
+            addCriterion("customer_id between", value1, value2, "customerId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("user_id not between", value1, value2, "userId");
+        public Criteria andCustomerIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("customer_id not between", value1, value2, "customerId");
             return (Criteria) this;
         }
 
@@ -422,6 +422,66 @@ public class OrderExample {
 
         public Criteria andMerchantIdNotBetween(Integer value1, Integer value2) {
             addCriterion("merchant_id not between", value1, value2, "merchantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentIsNull() {
+            addCriterion("actual_payment is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentIsNotNull() {
+            addCriterion("actual_payment is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentEqualTo(Long value) {
+            addCriterion("actual_payment =", value, "actualPayment");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentNotEqualTo(Long value) {
+            addCriterion("actual_payment <>", value, "actualPayment");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentGreaterThan(Long value) {
+            addCriterion("actual_payment >", value, "actualPayment");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentGreaterThanOrEqualTo(Long value) {
+            addCriterion("actual_payment >=", value, "actualPayment");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentLessThan(Long value) {
+            addCriterion("actual_payment <", value, "actualPayment");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentLessThanOrEqualTo(Long value) {
+            addCriterion("actual_payment <=", value, "actualPayment");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentIn(List<Long> values) {
+            addCriterion("actual_payment in", values, "actualPayment");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentNotIn(List<Long> values) {
+            addCriterion("actual_payment not in", values, "actualPayment");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentBetween(Long value1, Long value2) {
+            addCriterion("actual_payment between", value1, value2, "actualPayment");
+            return (Criteria) this;
+        }
+
+        public Criteria andActualPaymentNotBetween(Long value1, Long value2) {
+            addCriterion("actual_payment not between", value1, value2, "actualPayment");
             return (Criteria) this;
         }
 

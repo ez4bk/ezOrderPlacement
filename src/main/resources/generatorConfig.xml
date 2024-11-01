@@ -63,7 +63,8 @@
         <!--配置表信息 -->
         <table tableName="customer" domainObjectName="Customer">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-<!--            <oneToMany mappingTable="address" column="id" joinColumn="user_id"/>-->
+<!--            <oneToMany mappingTable="address" column="id" joinColumn="customer_id"/>-->
+<!--            <oneToOne mappingTable="wallet" column="id" joinColumn="customer_id"/>-->
         </table>
         <table tableName="address" domainObjectName="Address">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
@@ -71,10 +72,13 @@
         <table tableName="merchant" domainObjectName="Merchant">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="order" domainObjectName="Order">
+        <table tableName="ez_order" domainObjectName="Order">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
 <!--            <oneToOne mappingTable="user" column="user_id" joinColumn="id" />-->
 <!--            <oneToOne mappingTable="address" column="address_id" joinColumn="id" />-->
+        </table>
+        <table tableName="wallet" domainObjectName="Wallet">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>

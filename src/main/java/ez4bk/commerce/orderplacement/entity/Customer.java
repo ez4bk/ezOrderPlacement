@@ -15,6 +15,8 @@ public class Customer implements Serializable {
 
     private List<Address> addresses;
 
+    private Wallet wallet;
+
     private static final long serialVersionUID = 1L;
 
     @Override

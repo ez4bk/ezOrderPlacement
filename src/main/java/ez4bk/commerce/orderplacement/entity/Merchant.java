@@ -12,6 +12,8 @@ public class Merchant implements Serializable {
 
     private String description;
 
+    private Long price;
+
     private Integer stock;
 
     private Integer status;
@@ -27,6 +29,7 @@ public class Merchant implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", description=").append(description);
+        sb.append(", price=").append(price);
         sb.append(", stock=").append(stock);
         sb.append(", status=").append(status);
         sb.append(", serialVersionUID=").append(serialVersionUID);
