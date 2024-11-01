@@ -1,13 +1,14 @@
 package ez4bk.commerce.orderplacement.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class Wallet implements Serializable {
     private Integer id;
 
     private Integer customerId;
 
-    private Long balance;
+    private BigDecimal balance;
 
     private static final long serialVersionUID = 1L;
 
@@ -27,11 +28,11 @@ public class Wallet implements Serializable {
         this.customerId = customerId;
     }
 
-    public Long getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(Long balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 

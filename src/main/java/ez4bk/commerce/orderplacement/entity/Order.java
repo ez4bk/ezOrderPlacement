@@ -3,6 +3,7 @@ package ez4bk.commerce.orderplacement.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -17,7 +18,7 @@ public class Order implements Serializable {
 
     private Integer merchantId;
 
-    private Long actualPayment;
+    private BigDecimal actualPayment;
 
     // 0 - closed, 1 - pending, -1 - error
     private Byte status;

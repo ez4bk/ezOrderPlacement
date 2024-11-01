@@ -37,7 +37,7 @@
          NUMERIC 类型解析为java.math.BigDecimal -->
         <javaTypeResolver>
             <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
-            <property name="forceBigDecimals" value="false"/>
+            <property name="forceBigDecimals" value="true"/>
         </javaTypeResolver>
 
         <!-- 生成实体类地址 这里需要你改动，其中targetPackage需要根据你自己创建的目录进行改动 -->

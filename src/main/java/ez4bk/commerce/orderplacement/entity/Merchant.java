@@ -3,6 +3,7 @@ package ez4bk.commerce.orderplacement.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Data
 public class Merchant implements Serializable {
@@ -12,7 +13,7 @@ public class Merchant implements Serializable {
 
     private String description;
 
-    private Long price;
+    private BigDecimal price;
 
     private Integer stock;
 

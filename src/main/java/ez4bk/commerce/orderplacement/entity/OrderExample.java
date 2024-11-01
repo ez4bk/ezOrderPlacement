@@ -1,5 +1,6 @@
 package ez4bk.commerce.orderplacement.entity;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -435,52 +436,52 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentEqualTo(Long value) {
+        public Criteria andActualPaymentEqualTo(BigDecimal value) {
             addCriterion("actual_payment =", value, "actualPayment");
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentNotEqualTo(Long value) {
+        public Criteria andActualPaymentNotEqualTo(BigDecimal value) {
             addCriterion("actual_payment <>", value, "actualPayment");
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentGreaterThan(Long value) {
+        public Criteria andActualPaymentGreaterThan(BigDecimal value) {
             addCriterion("actual_payment >", value, "actualPayment");
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentGreaterThanOrEqualTo(Long value) {
+        public Criteria andActualPaymentGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("actual_payment >=", value, "actualPayment");
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentLessThan(Long value) {
+        public Criteria andActualPaymentLessThan(BigDecimal value) {
             addCriterion("actual_payment <", value, "actualPayment");
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentLessThanOrEqualTo(Long value) {
+        public Criteria andActualPaymentLessThanOrEqualTo(BigDecimal value) {
             addCriterion("actual_payment <=", value, "actualPayment");
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentIn(List<Long> values) {
+        public Criteria andActualPaymentIn(List<BigDecimal> values) {
             addCriterion("actual_payment in", values, "actualPayment");
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentNotIn(List<Long> values) {
+        public Criteria andActualPaymentNotIn(List<BigDecimal> values) {
             addCriterion("actual_payment not in", values, "actualPayment");
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentBetween(Long value1, Long value2) {
+        public Criteria andActualPaymentBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("actual_payment between", value1, value2, "actualPayment");
             return (Criteria) this;
         }
 
-        public Criteria andActualPaymentNotBetween(Long value1, Long value2) {
+        public Criteria andActualPaymentNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("actual_payment not between", value1, value2, "actualPayment");
             return (Criteria) this;
         }
