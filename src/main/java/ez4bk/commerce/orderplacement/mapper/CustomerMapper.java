@@ -4,10 +4,10 @@ import ez4bk.commerce.orderplacement.entity.Address;
 import ez4bk.commerce.orderplacement.entity.Customer;
 import ez4bk.commerce.orderplacement.entity.CustomerExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import org.apache.ibatis.annotations.Param;
 
-@Mapper
+@Repository
 public interface CustomerMapper {
     long countByExample(CustomerExample example);
 

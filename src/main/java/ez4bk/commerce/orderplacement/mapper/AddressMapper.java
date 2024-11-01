@@ -3,10 +3,10 @@ package ez4bk.commerce.orderplacement.mapper;
 import ez4bk.commerce.orderplacement.entity.Address;
 import ez4bk.commerce.orderplacement.entity.AddressExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
-@Mapper
+@Repository
 public interface AddressMapper {
     long countByExample(AddressExample example);
 

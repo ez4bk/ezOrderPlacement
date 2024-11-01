@@ -1,7 +1,6 @@
 package ez4bk.commerce.orderplacement.entity;
 
 import lombok.Data;
-import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,6 +15,7 @@ public class Order implements Serializable {
 
     private Integer addressId;
 
+    // 0 - closed, 1 - unpaid, 2 - paid, -1 - error
     private Byte status;
 
     private Date createTime;
@@ -44,5 +44,12 @@ public class Order implements Serializable {
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
+    }
+
+    public static class status {
+        public static final Byte CLOSED = 0;
+        public static final Byte UNPAID = 1;
+        public static final Byte PAID = 2;
+        public static final Byte ERROR = -1;
     }
 }
