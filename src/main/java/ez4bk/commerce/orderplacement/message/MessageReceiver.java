@@ -4,7 +4,6 @@ import ez4bk.commerce.orderplacement.entity.Order;
 import ez4bk.commerce.orderplacement.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,18 +17,18 @@ public class MessageReceiver {
 
     @RabbitListener(queues = ORDER_QUEUE)
     public void confirmPayment(Object message) {
-        String oid = null;
+        String oid;
         try {
             oid = (String) message;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         Byte curr = orderService.getOrderStatus(oid);
-        if (curr.equals(Order.status.UNPAID)) {
-            log.warn("Order {} time exceeds, closing...", oid);
-            orderService.updateOrder(oid, Order.status.CLOSED);
-        } else if (curr.equals(Order.status.PAID)) {
-            log.info("Order {} has been paid", oid);
+        if (curr.equals(Order.status.CLOSED)) {
+            log.info("Order {} is paid, do nothing", oid);
         }
+        log.warn("Order {} overdue, cancelling", oid);
+        orderService.cancelOrder(oid);
+
     }
 }

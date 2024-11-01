@@ -25,7 +25,7 @@ public class Order implements Serializable {
     // 0 - closed, 1 - pending, -1 - error
     private Byte status;
 
-    // 0 - paid, 1 - unpaid, -1 - error
+    // 0 - paid, 1 - unpaid, 2 - refunded, -1 - error
     private Byte paymentStatus;
 
     private Date createTime;
@@ -71,6 +71,7 @@ public class Order implements Serializable {
     public static class paymentStatus {
         public static final Byte PAID = 0;
         public static final Byte UNPAID = 1;
+        public static final Byte REFUNDED = 2;
         public static final Byte ERROR = -1;
     }
 }

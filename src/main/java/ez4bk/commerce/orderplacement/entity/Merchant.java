@@ -21,6 +21,18 @@ public class Merchant implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public boolean deductStock(Integer delta) {
+        if (stock == null || stock - delta < 0) {
+            return false;
+        }
+        stock -= delta;
+        return true;
+    }
+
+    public void addStock(Integer delta) {
+        stock -= delta;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

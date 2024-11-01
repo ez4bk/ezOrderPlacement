@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Slf4j
 @Service
 public class OrderService {
@@ -22,24 +24,31 @@ public class OrderService {
     @Autowired
     private CustomerService customerService;
 
-    public void createOrder(Order order) {
+    public boolean createOrder(Order order) {
         Merchant merchant = merchantMapper.selectByPrimaryKey(order.getMerchantId());
-        merchant.setStock(merchant.getStock() - 1);
+        if (!merchant.deductStock(order.getQuantity())) {
+            log.error("Merchant {} stock not enough", merchant.getId());
+            return false;
+        }
         orderMapper.insertSelective(order);
         messageSender.initOrder(order.getId(), 1000 * 60 * 15);
+        return true;
     }
 
-    public void cancelOrder(String orderId, Byte status) {
+    public boolean cancelOrder(String orderId) {
         Order order = orderMapper.selectByPrimaryKey(orderId);
         if (order == null) {
             log.error("Order not found: {}", orderId);
-            return;
+            return false;
         }
-        order.setStatus(status);
-        Customer customer = order.getCustomer();
-        Merchant merchant = order.getMerchant();
-//        customerService.refund(customer.getId(), merchant.getPrice());
+        order.setStatus(Order.status.CLOSED);
+
+        if (Objects.equals(order.getPaymentStatus(), Order.paymentStatus.PAID)) {
+            boolean refundRes = customerService.refund(order.getCustomerId(), order.getActualPayment());
+            assert refundRes;
+        }
         orderMapper.updateByPrimaryKeySelective(order);
+        return true;
     }
 
     public void makePayment(String orderId) {

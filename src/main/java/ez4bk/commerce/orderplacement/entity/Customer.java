@@ -3,6 +3,7 @@ package ez4bk.commerce.orderplacement.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -18,6 +19,30 @@ public class Customer implements Serializable {
     private Wallet wallet;
 
     private static final long serialVersionUID = 1L;
+
+    public BigDecimal getBalance() {
+        if (wallet == null) {
+            return null;
+        }
+        return wallet.getBalance();
+    }
+
+    public boolean addBalance(BigDecimal delta) {
+        if (wallet == null) {
+            return false;
+        }
+        wallet.setBalance(wallet.getBalance().add(delta));
+        return true;
+    }
+
+    public boolean deductBalance(BigDecimal delta) {
+        if (wallet == null) {
+            return false;
+        }
+        wallet.setBalance(wallet.getBalance().subtract(delta));
+        return true;
+    }
+
 
     @Override
     public String toString() {
