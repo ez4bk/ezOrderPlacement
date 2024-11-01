@@ -20,6 +20,8 @@ public class Order implements Serializable {
     // 0 - closed, 1 - unpaid, 2 - paid, -1 - error
     private Byte status;
 
+    private Byte paymentStatus;
+
     private Date createTime;
 
     private Date updateTime;
@@ -44,6 +46,7 @@ public class Order implements Serializable {
         sb.append(", addressId=").append(addressId);
         sb.append(", merchantId=").append(merchantId);
         sb.append(", status=").append(status);
+        sb.append(", paymentStatus=").append(paymentStatus);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

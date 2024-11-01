@@ -485,6 +485,66 @@ public class OrderExample {
             return (Criteria) this;
         }
 
+        public Criteria andPaymentStatusIsNull() {
+            addCriterion("payment_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusIsNotNull() {
+            addCriterion("payment_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusEqualTo(Byte value) {
+            addCriterion("payment_status =", value, "paymentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusNotEqualTo(Byte value) {
+            addCriterion("payment_status <>", value, "paymentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusGreaterThan(Byte value) {
+            addCriterion("payment_status >", value, "paymentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusGreaterThanOrEqualTo(Byte value) {
+            addCriterion("payment_status >=", value, "paymentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusLessThan(Byte value) {
+            addCriterion("payment_status <", value, "paymentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusLessThanOrEqualTo(Byte value) {
+            addCriterion("payment_status <=", value, "paymentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusIn(List<Byte> values) {
+            addCriterion("payment_status in", values, "paymentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusNotIn(List<Byte> values) {
+            addCriterion("payment_status not in", values, "paymentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusBetween(Byte value1, Byte value2) {
+            addCriterion("payment_status between", value1, value2, "paymentStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentStatusNotBetween(Byte value1, Byte value2) {
+            addCriterion("payment_status not between", value1, value2, "paymentStatus");
+            return (Criteria) this;
+        }
+
         public Criteria andCreateTimeIsNull() {
             addCriterion("create_time is null");
             return (Criteria) this;
