@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ez4bk.commerce.orderplacement.mapper.MerchantMapper">
     <resultMap id="BaseResultMap" type="ez4bk.commerce.orderplacement.entity.Merchant">
-        <id column="id" jdbcType="INTEGER" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="description" jdbcType="VARCHAR" property="description"/>
-        <result column="price" jdbcType="DECIMAL" property="price"/>
-        <result column="stock" jdbcType="INTEGER" property="stock"/>
-        <result column="status" jdbcType="INTEGER" property="status"/>
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="price" jdbcType="DECIMAL" property="price" />
+        <result column="stock" jdbcType="INTEGER" property="stock" />
+        <result column="status" jdbcType="INTEGER" property="status" />
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -27,8 +27,7 @@
                                 </when>
                                 <when test="criterion.listValue">
                                     and ${criterion.condition}
-                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
-                                             separator=",">
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                                         #{listItem}
                                     </foreach>
                                 </when>
@@ -57,8 +56,7 @@
                                 </when>
                                 <when test="criterion.listValue">
                                     and ${criterion.condition}
-                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
-                                             separator=",">
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                                         #{listItem}
                                     </foreach>
                                 </when>
@@ -70,18 +68,17 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        id, "name", description, price, stock, "status"
+        id, `name`, description, price, stock, `status`
     </sql>
-    <select id="selectByExample" parameterType="ez4bk.commerce.orderplacement.entity.MerchantExample"
-            resultMap="BaseResultMap">
+    <select id="selectByExample" parameterType="ez4bk.commerce.orderplacement.entity.MerchantExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
             distinct
         </if>
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List" />
         from merchant
         <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
+            <include refid="Example_Where_Clause" />
         </if>
         <if test="orderByClause != null">
             order by ${orderByClause}
@@ -89,27 +86,26 @@
     </select>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List" />
         from merchant
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete
-        from merchant
+        delete from merchant
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <delete id="deleteByExample" parameterType="ez4bk.commerce.orderplacement.entity.MerchantExample">
         delete from merchant
         <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
+            <include refid="Example_Where_Clause" />
         </if>
     </delete>
     <insert id="insert" parameterType="ez4bk.commerce.orderplacement.entity.Merchant">
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into merchant ("name", description, price,
-        stock, "status")
+        insert into merchant (`name`, description, price,
+        stock, `status`)
         values (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL},
         #{stock,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
     </insert>
@@ -120,7 +116,7 @@
         insert into merchant
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="name != null">
-                "name",
+                `name`,
             </if>
             <if test="description != null">
                 description,
@@ -132,7 +128,7 @@
                 stock,
             </if>
             <if test="status != null">
-                "status",
+                `status`,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -153,11 +149,10 @@
             </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="ez4bk.commerce.orderplacement.entity.MerchantExample"
-            resultType="java.lang.Long">
+    <select id="countByExample" parameterType="ez4bk.commerce.orderplacement.entity.MerchantExample" resultType="java.lang.Long">
         select count(*) from merchant
         <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
+            <include refid="Example_Where_Clause" />
         </if>
     </select>
     <update id="updateByExampleSelective" parameterType="map">
@@ -167,7 +162,7 @@
                 id = #{row.id,jdbcType=INTEGER},
             </if>
             <if test="row.name != null">
-                "name" = #{row.name,jdbcType=VARCHAR},
+                `name` = #{row.name,jdbcType=VARCHAR},
             </if>
             <if test="row.description != null">
                 description = #{row.description,jdbcType=VARCHAR},
@@ -179,30 +174,30 @@
                 stock = #{row.stock,jdbcType=INTEGER},
             </if>
             <if test="row.status != null">
-                "status" = #{row.status,jdbcType=INTEGER},
+                `status` = #{row.status,jdbcType=INTEGER},
             </if>
         </set>
         <if test="example != null">
-            <include refid="Update_By_Example_Where_Clause"/>
+            <include refid="Update_By_Example_Where_Clause" />
         </if>
     </update>
     <update id="updateByExample" parameterType="map">
         update merchant
         set id = #{row.id,jdbcType=INTEGER},
-        "name" = #{row.name,jdbcType=VARCHAR},
+        `name` = #{row.name,jdbcType=VARCHAR},
         description = #{row.description,jdbcType=VARCHAR},
         price = #{row.price,jdbcType=DECIMAL},
         stock = #{row.stock,jdbcType=INTEGER},
-        "status" = #{row.status,jdbcType=INTEGER}
+        `status` = #{row.status,jdbcType=INTEGER}
         <if test="example != null">
-            <include refid="Update_By_Example_Where_Clause"/>
+            <include refid="Update_By_Example_Where_Clause" />
         </if>
     </update>
     <update id="updateByPrimaryKeySelective" parameterType="ez4bk.commerce.orderplacement.entity.Merchant">
         update merchant
         <set>
             <if test="name != null">
-                "name" = #{name,jdbcType=VARCHAR},
+                `name` = #{name,jdbcType=VARCHAR},
             </if>
             <if test="description != null">
                 description = #{description,jdbcType=VARCHAR},
@@ -214,18 +209,18 @@
                 stock = #{stock,jdbcType=INTEGER},
             </if>
             <if test="status != null">
-                "status" = #{status,jdbcType=INTEGER},
+                `status` = #{status,jdbcType=INTEGER},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="ez4bk.commerce.orderplacement.entity.Merchant">
         update merchant
-        set "name"      = #{name,jdbcType=VARCHAR},
+        set `name` = #{name,jdbcType=VARCHAR},
             description = #{description,jdbcType=VARCHAR},
-            price       = #{price,jdbcType=DECIMAL},
-            stock       = #{stock,jdbcType=INTEGER},
-            "status"    = #{status,jdbcType=INTEGER}
+            price = #{price,jdbcType=DECIMAL},
+            stock = #{stock,jdbcType=INTEGER},
+            `status` = #{status,jdbcType=INTEGER}
         where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>

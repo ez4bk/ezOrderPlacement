@@ -2,23 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ez4bk.commerce.orderplacement.mapper.OrderMapper">
     <resultMap id="BaseResultMap" type="ez4bk.commerce.orderplacement.entity.Order">
-        <id column="id" jdbcType="VARCHAR" property="id"/>
-        <result column="description" jdbcType="VARCHAR" property="description"/>
-        <result column="customer_id" jdbcType="INTEGER" property="customerId"/>
-        <result column="address_id" jdbcType="INTEGER" property="addressId"/>
-        <result column="merchant_id" jdbcType="INTEGER" property="merchantId"/>
-        <result column="quantity" jdbcType="INTEGER" property="quantity"/>
-        <result column="actual_payment" jdbcType="DECIMAL" property="actualPayment"/>
-        <result column="status" jdbcType="TINYINT" property="status"/>
-        <result column="payment_status" jdbcType="TINYINT" property="paymentStatus"/>
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
-        <association property="customer" column="user_id"
-                     select="ez4bk.commerce.orderplacement.mapper.CustomerMapper.selectByPrimaryKey"/>
-        <association property="address" column="address_id"
-                     select="ez4bk.commerce.orderplacement.mapper.AddressMapper.selectByPrimaryKey"/>
-        <association property="merchant" column="merchant_id"
-                     select="ez4bk.commerce.orderplacement.mapper.MerchantMapper.selectByPrimaryKey"/>
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+        <result column="address_id" jdbcType="INTEGER" property="addressId" />
+        <result column="merchant_id" jdbcType="INTEGER" property="merchantId" />
+        <result column="quantity" jdbcType="INTEGER" property="quantity" />
+        <result column="actual_payment" jdbcType="DECIMAL" property="actualPayment" />
+        <result column="status" jdbcType="TINYINT" property="status" />
+        <result column="payment_status" jdbcType="TINYINT" property="paymentStatus" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <association property="customer" column="user_id" select="ez4bk.commerce.orderplacement.mapper.CustomerMapper.selectByPrimaryKey" />
+        <association property="address" column="address_id" select="ez4bk.commerce.orderplacement.mapper.AddressMapper.selectByPrimaryKey" />
+        <association property="merchant" column="merchant_id" select="ez4bk.commerce.orderplacement.mapper.MerchantMapper.selectByPrimaryKey" />
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -38,8 +35,7 @@
                                 </when>
                                 <when test="criterion.listValue">
                                     and ${criterion.condition}
-                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
-                                             separator=",">
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                                         #{listItem}
                                     </foreach>
                                 </when>
@@ -68,8 +64,7 @@
                                 </when>
                                 <when test="criterion.listValue">
                                     and ${criterion.condition}
-                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
-                                             separator=",">
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                                         #{listItem}
                                     </foreach>
                                 </when>
@@ -82,18 +77,17 @@
     </sql>
     <sql id="Base_Column_List">
         id, description, customer_id, address_id, merchant_id, quantity, actual_payment,
-    "status", payment_status, create_time, update_time
+    `status`, payment_status, create_time, update_time
     </sql>
-    <select id="selectByExample" parameterType="ez4bk.commerce.orderplacement.entity.OrderExample"
-            resultMap="BaseResultMap">
+    <select id="selectByExample" parameterType="ez4bk.commerce.orderplacement.entity.OrderExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
             distinct
         </if>
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List" />
         from ez_order
         <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
+            <include refid="Example_Where_Clause" />
         </if>
         <if test="orderByClause != null">
             order by ${orderByClause}
@@ -101,19 +95,18 @@
     </select>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List" />
         from ez_order
         where id = #{id,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete
-        from ez_order
+        delete from ez_order
         where id = #{id,jdbcType=VARCHAR}
     </delete>
     <delete id="deleteByExample" parameterType="ez4bk.commerce.orderplacement.entity.OrderExample">
         delete from ez_order
         <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
+            <include refid="Example_Where_Clause" />
         </if>
     </delete>
     <insert id="insert" parameterType="ez4bk.commerce.orderplacement.entity.Order">
@@ -122,7 +115,7 @@
         </selectKey>
         insert into ez_order (description, customer_id, address_id,
         merchant_id, quantity, actual_payment,
-        "status", payment_status, create_time,
+        `status`, payment_status, create_time,
         update_time)
         values (#{description,jdbcType=VARCHAR}, #{customerId,jdbcType=INTEGER}, #{addressId,jdbcType=INTEGER},
         #{merchantId,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER}, #{actualPayment,jdbcType=DECIMAL},
@@ -154,7 +147,7 @@
                 actual_payment,
             </if>
             <if test="status != null">
-                "status",
+                `status`,
             </if>
             <if test="paymentStatus != null">
                 payment_status,
@@ -199,11 +192,10 @@
             </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="ez4bk.commerce.orderplacement.entity.OrderExample"
-            resultType="java.lang.Long">
+    <select id="countByExample" parameterType="ez4bk.commerce.orderplacement.entity.OrderExample" resultType="java.lang.Long">
         select count(*) from ez_order
         <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
+            <include refid="Example_Where_Clause" />
         </if>
     </select>
     <update id="updateByExampleSelective" parameterType="map">
@@ -231,7 +223,7 @@
                 actual_payment = #{row.actualPayment,jdbcType=DECIMAL},
             </if>
             <if test="row.status != null">
-                "status" = #{row.status,jdbcType=TINYINT},
+                `status` = #{row.status,jdbcType=TINYINT},
             </if>
             <if test="row.paymentStatus != null">
                 payment_status = #{row.paymentStatus,jdbcType=TINYINT},
@@ -244,7 +236,7 @@
             </if>
         </set>
         <if test="example != null">
-            <include refid="Update_By_Example_Where_Clause"/>
+            <include refid="Update_By_Example_Where_Clause" />
         </if>
     </update>
     <update id="updateByExample" parameterType="map">
@@ -256,12 +248,12 @@
         merchant_id = #{row.merchantId,jdbcType=INTEGER},
         quantity = #{row.quantity,jdbcType=INTEGER},
         actual_payment = #{row.actualPayment,jdbcType=DECIMAL},
-        "status" = #{row.status,jdbcType=TINYINT},
+        `status` = #{row.status,jdbcType=TINYINT},
         payment_status = #{row.paymentStatus,jdbcType=TINYINT},
         create_time = #{row.createTime,jdbcType=TIMESTAMP},
         update_time = #{row.updateTime,jdbcType=TIMESTAMP}
         <if test="example != null">
-            <include refid="Update_By_Example_Where_Clause"/>
+            <include refid="Update_By_Example_Where_Clause" />
         </if>
     </update>
     <update id="updateByPrimaryKeySelective" parameterType="ez4bk.commerce.orderplacement.entity.Order">
@@ -286,7 +278,7 @@
                 actual_payment = #{actualPayment,jdbcType=DECIMAL},
             </if>
             <if test="status != null">
-                "status" = #{status,jdbcType=TINYINT},
+                `status` = #{status,jdbcType=TINYINT},
             </if>
             <if test="paymentStatus != null">
                 payment_status = #{paymentStatus,jdbcType=TINYINT},
@@ -302,16 +294,16 @@
     </update>
     <update id="updateByPrimaryKey" parameterType="ez4bk.commerce.orderplacement.entity.Order">
         update ez_order
-        set description    = #{description,jdbcType=VARCHAR},
-            customer_id    = #{customerId,jdbcType=INTEGER},
-            address_id     = #{addressId,jdbcType=INTEGER},
-            merchant_id    = #{merchantId,jdbcType=INTEGER},
-            quantity       = #{quantity,jdbcType=INTEGER},
+        set description = #{description,jdbcType=VARCHAR},
+            customer_id = #{customerId,jdbcType=INTEGER},
+            address_id = #{addressId,jdbcType=INTEGER},
+            merchant_id = #{merchantId,jdbcType=INTEGER},
+            quantity = #{quantity,jdbcType=INTEGER},
             actual_payment = #{actualPayment,jdbcType=DECIMAL},
-            "status"       = #{status,jdbcType=TINYINT},
+            `status` = #{status,jdbcType=TINYINT},
             payment_status = #{paymentStatus,jdbcType=TINYINT},
-            create_time    = #{createTime,jdbcType=TIMESTAMP},
-            update_time    = #{updateTime,jdbcType=TIMESTAMP}
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+            update_time = #{updateTime,jdbcType=TIMESTAMP}
         where id = #{id,jdbcType=VARCHAR}
     </update>
 </mapper>
