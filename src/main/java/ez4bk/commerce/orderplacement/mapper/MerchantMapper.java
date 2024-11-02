@@ -2,11 +2,12 @@ package ez4bk.commerce.orderplacement.mapper;
 
 import ez4bk.commerce.orderplacement.entity.Merchant;
 import ez4bk.commerce.orderplacement.entity.MerchantExample;
-import java.util.List;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-@Repository
+import java.util.List;
+
+@Mapper
 public interface MerchantMapper {
     long countByExample(MerchantExample example);
 

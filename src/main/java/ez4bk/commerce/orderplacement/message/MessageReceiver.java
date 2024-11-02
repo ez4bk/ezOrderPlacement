@@ -16,13 +16,7 @@ public class MessageReceiver {
     private OrderService orderService;
 
     @RabbitListener(queues = ORDER_QUEUE)
-    public void confirmPayment(Object message) {
-        String oid;
-        try {
-            oid = (String) message;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void confirmPayment(Integer oid) {
         Byte curr = orderService.getOrderStatus(oid);
         if (curr.equals(Order.status.CLOSED)) {
             log.info("Order {} is paid, do nothing", oid);

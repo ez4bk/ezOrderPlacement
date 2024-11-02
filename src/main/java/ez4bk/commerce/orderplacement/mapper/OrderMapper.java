@@ -2,17 +2,18 @@ package ez4bk.commerce.orderplacement.mapper;
 
 import ez4bk.commerce.orderplacement.entity.Order;
 import ez4bk.commerce.orderplacement.entity.OrderExample;
-import java.util.List;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-@Repository
+import java.util.List;
+
+@Mapper
 public interface OrderMapper {
     long countByExample(OrderExample example);
 
     int deleteByExample(OrderExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Order row);
 
@@ -20,7 +21,7 @@ public interface OrderMapper {
 
     List<Order> selectByExample(OrderExample example);
 
-    Order selectByPrimaryKey(String id);
+    Order selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("row") Order row, @Param("example") OrderExample example);
 

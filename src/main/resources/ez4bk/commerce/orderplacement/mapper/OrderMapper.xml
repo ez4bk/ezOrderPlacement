@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ez4bk.commerce.orderplacement.mapper.OrderMapper">
     <resultMap id="BaseResultMap" type="ez4bk.commerce.orderplacement.entity.Order">
-        <id column="id" jdbcType="VARCHAR" property="id" />
+        <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="description" jdbcType="VARCHAR" property="description" />
         <result column="customer_id" jdbcType="INTEGER" property="customerId" />
         <result column="address_id" jdbcType="INTEGER" property="addressId" />
@@ -93,15 +93,15 @@
             order by ${orderByClause}
         </if>
     </select>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from ez_order
-        where id = #{id,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete from ez_order
-        where id = #{id,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
     </delete>
     <delete id="deleteByExample" parameterType="ez4bk.commerce.orderplacement.entity.OrderExample">
         delete from ez_order
@@ -110,7 +110,7 @@
         </if>
     </delete>
     <insert id="insert" parameterType="ez4bk.commerce.orderplacement.entity.Order">
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into ez_order (description, customer_id, address_id,
@@ -123,7 +123,7 @@
         #{updateTime,jdbcType=TIMESTAMP})
     </insert>
     <insert id="insertSelective" parameterType="ez4bk.commerce.orderplacement.entity.Order">
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into ez_order
@@ -202,7 +202,7 @@
         update ez_order
         <set>
             <if test="row.id != null">
-                id = #{row.id,jdbcType=VARCHAR},
+                id = #{row.id,jdbcType=INTEGER},
             </if>
             <if test="row.description != null">
                 description = #{row.description,jdbcType=VARCHAR},
@@ -241,7 +241,7 @@
     </update>
     <update id="updateByExample" parameterType="map">
         update ez_order
-        set id = #{row.id,jdbcType=VARCHAR},
+        set id = #{row.id,jdbcType=INTEGER},
         description = #{row.description,jdbcType=VARCHAR},
         customer_id = #{row.customerId,jdbcType=INTEGER},
         address_id = #{row.addressId,jdbcType=INTEGER},
@@ -290,7 +290,7 @@
                 update_time = #{updateTime,jdbcType=TIMESTAMP},
             </if>
         </set>
-        where id = #{id,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="ez4bk.commerce.orderplacement.entity.Order">
         update ez_order
@@ -304,6 +304,6 @@
             payment_status = #{paymentStatus,jdbcType=TINYINT},
             create_time = #{createTime,jdbcType=TIMESTAMP},
             update_time = #{updateTime,jdbcType=TIMESTAMP}
-        where id = #{id,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>
