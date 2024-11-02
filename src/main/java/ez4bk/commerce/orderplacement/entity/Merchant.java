@@ -30,7 +30,7 @@ public class Merchant implements Serializable {
     }
 
     public void addStock(Integer delta) {
-        stock -= delta;
+        stock += delta;
     }
 
     @Override

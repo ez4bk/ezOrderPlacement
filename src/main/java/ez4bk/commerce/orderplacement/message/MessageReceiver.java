@@ -20,8 +20,9 @@ public class MessageReceiver {
         Byte curr = orderService.getOrderStatus(oid);
         if (curr.equals(Order.status.CLOSED)) {
             log.info("Order {} is paid, do nothing", oid);
+            return;
         }
-        log.warn("Order {} overdue, cancelling", oid);
+        log.warn("Order {} due, validating payment", oid);
         orderService.cancelOrder(oid);
 
     }
